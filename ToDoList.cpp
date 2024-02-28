@@ -21,6 +21,17 @@ bool ToDoList::changeItem(int index, const std::string& newItem) {
     return false;
 }
 
+int ToDoList::getItemsCount() const {
+    int count = 0;
+    for (auto it = items.begin(); it != items.end(); ++it) {
+        count++;
+    }
+    return count;
+}
+std::string ToDoList::getItem(int index) const {
+    return items[index];
+}
+
 void ToDoList::displayItems() const {
     for(int i = 0; i < items.size(); ++i) {
         std::cout << i + 1 << ". " << items[i] << std::endl;

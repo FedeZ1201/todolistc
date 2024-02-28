@@ -21,6 +21,9 @@ int main() {
     list.displayItems();
     std::cout << "--------------------------------\n";
 
+    std::cout << "Numero di elementi nella lista:";
+    list.getItemsCount();
+
 
     return 0;
 }

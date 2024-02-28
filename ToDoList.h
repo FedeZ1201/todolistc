@@ -12,6 +12,9 @@ public:
     bool removeItem(int index);
     bool changeItem(int index, const std::string& newItem);
     void displayItems() const;
+    int getItemsCount() const;
+    std::string getItem(int index) const;
+    std::string outputstr() const;
 };
 
 #endif
