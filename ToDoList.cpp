@@ -1,19 +1,24 @@
 #include "ToDoList.h"
 #include <iostream>
 
-void ToDoList::addItem(const std::string& item) {
+void ToDoList::addItem(const Todo& item) {
     items.push_back(item);
 }
 
 bool ToDoList::removeItem(int index) {
-    if(index >= 0 && index < items.size()) {
-        items.erase(items.begin() + index);
-        return true;
+    try{
+        if(index >= 0 && index < items.size()) {
+            items.erase(items.begin() + index);
+            return true;
+        }
     }
-    return false;
+    catch (std::out_of_range& e) {
+        std::cerr << "Errore: " << e.what() << std::endl;
+        return false;
+    }
 }
 
-bool ToDoList::changeItem(int index, const std::string& newItem) {
+bool ToDoList::changeItem(int index, const Todo& newItem) {
     if(index >= 0 && index < items.size()) {
         items[index] = newItem;
         return true;
@@ -28,12 +33,23 @@ int ToDoList::getItemsCount() const {
     }
     return count;
 }
-std::string ToDoList::getItem(int index) const {
-    return items[index];
+Todo ToDoList::getItem(int index) const {
+    try {
+        if (index >= 0 && index < items.size()) {
+            return items[index];
+        }
+    }
+    catch (std::out_of_range& e) {
+        std::cerr << "Errore: " << e.what() << std::endl;
+    }
 }
 
 void ToDoList::displayItems() const {
     for(int i = 0; i < items.size(); ++i) {
-        std::cout << i + 1 << ". " << items[i] << std::endl;
+        std::cout << i << ": " << items[i].title;
+        if (!items[i].description.empty()) {
+            std::cout << " - " << items[i].description;
+        }
+        std::cout << std::endl;
     }
 }

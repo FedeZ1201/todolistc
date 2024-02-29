@@ -4,17 +4,25 @@
 #include <vector>
 #include <string>
 
+class Todo {
+public:
+    std::string title;
+    std::string description;
+
+    Todo(const std::string &title, const std::string &description = ""):title(title), description(description) {}
+};
+
+
 class ToDoList {
 private:
-    std::vector<std::string> items;
+    std::vector<Todo> items;
 public:
-    void addItem(const std::string& item);
+    void addItem(const Todo& item);
     bool removeItem(int index);
-    bool changeItem(int index, const std::string& newItem);
-    void displayItems() const;
+    bool changeItem(int index, const Todo& item);
     int getItemsCount() const;
-    std::string getItem(int index) const;
-    std::string outputstr() const;
+    void displayItems() const;
+    Todo getItem(int index) const;
 };
 
 #endif
