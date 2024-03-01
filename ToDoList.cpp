@@ -11,10 +11,10 @@ bool ToDoList::removeItem(int index) {
             items.erase(items.begin() + index);
             return true;
         }
+        return false;
     }
     catch (std::out_of_range& e) {
         std::cerr << "Errore: " << e.what() << std::endl;
-        return false;
     }
 }
 
