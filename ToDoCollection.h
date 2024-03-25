@@ -16,7 +16,7 @@ private:
     std::vector<ToDoList> lists;
 
 public:
-    ToDoCollection(const std::string& name);
+    explicit ToDoCollection(const std::string& name);
     void addList(const ToDoList& list);
     bool removeList(const std::string& name);
     bool removeListByIndex(const int index);

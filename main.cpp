@@ -25,6 +25,10 @@ int main() {
     list1.attach(&notifier);
     list2.attach(&notifier);
     list3.attach(&notifier);
+    notifier.attachTo(&list1);
+    notifier.attachTo(&list2);
+    notifier.attachTo(&list3);
+
 
     // Aggiunge elementi alla lista, ciò scatenerà le notifiche
     list1.addItem(Todo("Compra la pasta"));

@@ -14,7 +14,7 @@ private:
     std::string description;
     bool isCompleted = false;
 public:
-    Todo(const std::string &title, const std::string &description = "", const std::string &date="" ,const bool isCompleted= false): date(date), title(title), description(description) , isCompleted(isCompleted){}
+    explicit Todo(const std::string &title, const std::string &description = "", const std::string &date="" ,const bool isCompleted= false): date(date), title(title), description(description) , isCompleted(isCompleted){}
 
     // Getters
     std::string getTitle() const { return title; }

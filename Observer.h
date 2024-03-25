@@ -10,6 +10,7 @@
 class Observer {
 public:
     virtual void update(const std::string& message, const Todo& item) = 0;
+
     virtual ~Observer() {}
 };
 

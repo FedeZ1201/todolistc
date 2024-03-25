@@ -11,7 +11,7 @@ private:
     std::vector<Todo> items;
     std::string title;
 public:
-    ToDoList(const std::string &title);
+    explicit ToDoList(const std::string &title);
     void addItem(const Todo& item);
     bool removeItem(int index);
     bool changeItem(int index, const Todo& item);
