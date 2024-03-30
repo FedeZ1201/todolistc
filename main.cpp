@@ -9,7 +9,7 @@ int main() {
     ToDoCollection collection2("Collezione 2");
 
     // Crea la lista di cose da fare con un nome
-    ToDoList list1("Lista 1");
+    ToDoList list1("Lista");
     ToDoList list2("Lista 2");
     ToDoList list3("Lista 3");
 

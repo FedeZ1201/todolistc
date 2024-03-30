@@ -48,7 +48,7 @@ TEST_F(ToDoCollectionTest, RemoveListByIndex) {
 }
 
 TEST_F(ToDoCollectionTest, RemoveListByInvalidIndex) {
-    bool result = collection->removeListByIndex(100); // Assuming no list has been added
+    bool result = collection->removeListByIndex(100);
     ASSERT_FALSE(result);
 }
 
@@ -66,9 +66,18 @@ TEST_F(ToDoCollectionTest, GetListByNameNotFound) {
 }
 
 TEST_F(ToDoCollectionTest, DisplayLists) {
-    // This test might simply ensure the function runs, as testing console output can be complex and often not very meaningful
     ASSERT_NO_THROW(collection->displayLists());
 }
 
-// More tests can be added for other methods and edge cases
+TEST_F(ToDoCollectionTest, RemoveNonExistentListByName) {
+    ToDoList list("Shopping");
+    collection->addList(list);
+    ASSERT_FALSE(collection->removeList("NonExisting"));
+}
+
+TEST_F(ToDoCollectionTest, RemoveNonExistentListByIndex) {
+    ToDoList list("Shopping");
+    collection->addList(list);
+    ASSERT_FALSE(collection->removeListByIndex(1));
+}
 

@@ -3,6 +3,26 @@
 
 ToDoList::ToDoList(const std::string& title) : title(title) {}
 
+ToDoList::~ToDoList() {
+    for(auto observer : observers) {
+        observers.remove(observer);
+    }
+}
+
+void ToDoList::attach(Observer* observer) {
+    observers.push_back(observer);
+}
+
+void ToDoList::detach(Observer* observer) {
+    observers.remove(observer);
+}
+
+void ToDoList::notify(const std::string& message, const Todo& item) {
+    for(auto observer : observers) {
+        observer->update(message, item);
+    }
+}
+
 void ToDoList::addItem(const Todo& item) {
     items.push_back(item);
     notify("Item added", item);

@@ -9,23 +9,11 @@
 #include <list>
 
 class Subject {
-private:
-    std::list<Observer*> observers;
-
 public:
-    void attach(Observer* observer) {
-        observers.push_back(observer);
-    }
-
-    void detach(Observer* observer) {
-        observers.remove(observer);
-    }
-
-    void notify(const std::string& message, const Todo& item) {
-        for (Observer* observer : observers) {
-            observer->update(message, item);
-        }
-    }
+    virtual void attach(Observer* observer) = 0;
+    virtual void detach(Observer* observer) = 0;
+    virtual void notify(const std::string& message, const Todo& item) = 0;
+    virtual ~Subject() {}
 };
 
 #endif //TODOLIST_SUBJECT_H
